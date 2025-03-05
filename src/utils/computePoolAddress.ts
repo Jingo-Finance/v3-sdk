@@ -2,7 +2,7 @@ import { defaultAbiCoder } from '@ethersproject/abi'
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256 } from '@ethersproject/solidity'
 import { Token } from '@pollum-io/sdk-core'
-import { FeeAmount, POOL_INIT_CODE_HASH } from '../constants'
+import { FeeAmount, POOL_INIT_CODE_HASH_MAP, POOL_INIT_CODE_HASH } from '../constants'
 
 /**
  * Computes a pool address
@@ -27,12 +27,13 @@ export function computePoolAddress({
   initCodeHashManualOverride?: string
 }): string {
   const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
+  const codehash = POOL_INIT_CODE_HASH_MAP[tokenA.chainId] ?? POOL_INIT_CODE_HASH
   return getCreate2Address(
     factoryAddress,
     keccak256(
       ['bytes'],
       [defaultAbiCoder.encode(['address', 'address', 'uint24'], [token0.address, token1.address, fee])]
     ),
-    initCodeHashManualOverride ?? POOL_INIT_CODE_HASH
+    initCodeHashManualOverride ?? codehash
   )
 }
