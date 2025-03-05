@@ -1479,10 +1479,10 @@
   dependencies:
     web3 "^1.7.3"
 
-"@pollum-io/sdk-core@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@pollum-io/sdk-core/-/sdk-core-0.0.3.tgz#407e2b958ad56da3244c6022552025e37ae3f631"
-  integrity sha512-kL6eIpvcMyR2eRXliAYoKE9f1u5vfU+IwQeESaMcKdRB5KKZ8J+hmC7BSEsU/wvcMKHJ5AQSBWAElvzy2J/8Ig==
+"@pollum-io/sdk-core@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@pollum-io/sdk-core/-/sdk-core-0.0.4.tgz#c448d58b53bd2b274c38d903a932d62400680b1d"
+  integrity sha512-Lf6FYnXYzafJOuLASLn8D/cEccJRePxhP0E98VvjaKWMi/4AmoFz25+86T7255kLvZQm+PgOcbEbeQ/o13vmwQ==
   dependencies:
     "@ethersproject/address" "^5.0.2"
     big.js "^5.2.2"
@@ -1510,13 +1510,6 @@
   dependencies:
     dotenv "^16.0.3"
 
-"@pollum-io/v2-core@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@pollum-io/v2-core/-/v2-core-0.0.2.tgz#1632b01c835f05e2367175ecfd3d5ae60bcb6611"
-  integrity sha512-J7/5X7CBgn2TPxJL9QVF8SopYgthz1HLBDUEeZwrCXOZMlwU16+7L/ZLKkoBfPxqppy5T4QaYMNPgA6h9QwXLQ==
-  dependencies:
-    dotenv "^16.0.3"
-
 "@pollum-io/v2-periphery@0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@pollum-io/v2-periphery/-/v2-periphery-0.0.1.tgz#003f968efd2b141e08e55682941aabb84da7e59c"
@@ -1528,25 +1521,32 @@
     "@uniswap/lib" "^4.0.1-alpha"
     base64-sol "1.0.1"
 
-"@pollum-io/v2-periphery@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@pollum-io/v2-periphery/-/v2-periphery-0.0.2.tgz#e5e4013def9af92d4eaaad43631629a335443e79"
-  integrity sha512-KbXxfxj7nYNSF0B7g7uk5V4pXddxzHn7/S1SHXxds8mGO8eb9arRiQwO8JrqEozsqOp7uKfKfW5SHrUJdIIIBQ==
+"@pollum-io/v3-core@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@pollum-io/v3-core/-/v3-core-0.0.1.tgz#7206e32b6bfbb5e21098eab29d45643944e59d53"
+  integrity sha512-l4VnKlKOokoIAzQdpoyHQWmWhfsl0qU5pAlNlsMI0G1ebCBv5sbapZfUr4vs4hiHO1ZxQBPfKQiC654GJC+C2w==
+  dependencies:
+    dotenv "^16.0.3"
+
+"@pollum-io/v3-periphery@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@pollum-io/v3-periphery/-/v3-periphery-0.0.1.tgz#cb90ac69cd0f958e810c6970e4e3877c85037f8f"
+  integrity sha512-XjxfhNy8C+v6lgSxzQFaKX2x59zRTVbU2EyUK3IkgcMTDrWRqwHI5eaxn/kVaNzNngA+lYV0y9ofuNIl37VrTg==
   dependencies:
     "@openzeppelin/contracts" "3.4.2-solc-0.7"
     "@pollum-io/pegasys-protocol" "0.0.17"
-    "@pollum-io/v2-core" "0.0.2"
+    "@pollum-io/v3-core" "0.0.1"
     "@uniswap/lib" "^4.0.1-alpha"
     base64-sol "1.0.1"
 
-"@pollum-io/v2-staker@0.0.1":
+"@pollum-io/v3-staker@0.0.1":
   version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@pollum-io/v2-staker/-/v2-staker-0.0.1.tgz#f0e88065757e87774cd37d1e65749929ec9d72e9"
-  integrity sha512-1WVXe4yYm0cTP4ouwX22Nb+lky74UlUFUyB5I2uTaRlpQ0pTB4uv1qhDya7y38ilch+MfD2iEzUdzc/ZkivQ/A==
+  resolved "https://registry.yarnpkg.com/@pollum-io/v3-staker/-/v3-staker-0.0.1.tgz#f7b075538522b68bd134ffd444e4238f57475427"
+  integrity sha512-Km4Yp6SYfsGvklHY9Z7lOqYJ/ZJ7GO+3aD5ZelaMKVi+xobx9rgheOCDeDFJfNZsL01ktxGAkKWlC19tjusBkA==
   dependencies:
     "@openzeppelin/contracts" "3.4.1-solc-0.7-2"
-    "@pollum-io/v2-core" "0.0.1"
-    "@pollum-io/v2-periphery" "0.0.1"
+    "@pollum-io/v3-core" "0.0.1"
+    "@pollum-io/v3-periphery" "0.0.1"
 
 "@rollup/plugin-babel@^5.1.0":
   version "5.2.2"
