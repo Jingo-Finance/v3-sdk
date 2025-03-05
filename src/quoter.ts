@@ -1,7 +1,7 @@
 import { Interface } from '@ethersproject/abi'
 import { BigintIsh, Currency, CurrencyAmount, TradeType } from '@pollum-io/sdk-core'
 import { encodeRouteToPath, MethodParameters, toHex } from './utils'
-import IQuoter from '@pollum-io/v2-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'
+import IQuoter from '@pollum-io/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'
 import IQuoterV2 from '@pollum-io/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'
 import { Route } from './entities'
 import invariant from 'tiny-invariant'

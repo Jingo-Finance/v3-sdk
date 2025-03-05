@@ -1,6 +1,6 @@
 import { BigintIsh, Token } from '@pollum-io/sdk-core'
 import { Interface } from '@ethersproject/abi'
-import ISelfPermit from '@pollum-io/v2-periphery/artifacts/contracts/interfaces/ISelfPermit.sol/ISelfPermit.json'
+import ISelfPermit from '@pollum-io/v3-periphery/artifacts/contracts/interfaces/ISelfPermit.sol/ISelfPermit.json'
 import { toHex } from './utils'
 
 export interface StandardPermitArguments {

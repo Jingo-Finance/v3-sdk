@@ -1,6 +1,6 @@
 import JSBI from 'jsbi'
 import { Interface } from '@ethersproject/abi'
-import IPeripheryPaymentsWithFee from '@pollum-io/v2-periphery/artifacts/contracts/interfaces/IPeripheryPaymentsWithFee.sol/IPeripheryPaymentsWithFee.json'
+import IPeripheryPaymentsWithFee from '@pollum-io/v3-periphery/artifacts/contracts/interfaces/IPeripheryPaymentsWithFee.sol/IPeripheryPaymentsWithFee.json'
 import { Percent, Token, validateAndParseAddress } from '@pollum-io/sdk-core'
 import { toHex } from './utils/calldata'
 

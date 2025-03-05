@@ -27,7 +27,7 @@
     "@ethersproject/abi": "^5.0.12",
     "@ethersproject/solidity": "^5.0.9",
     "@pollum-io/sdk-core": "0.0.4",
-    "@pollum-io/swap-router-contracts": "0.0.4",
+    "@pollum-io/swap-router-contracts": "0.0.5",
     "@pollum-io/v3-periphery": "0.0.1",
     "@pollum-io/v3-staker": "0.0.1",
     "tiny-invariant": "^1.1.0",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.25",
-    "@pollum-io/v2-core": "0.0.1",
+    "@pollum-io/v3-core": "0.0.1",
     "tsdx": "^0.14.1"
   },
   "engines": {
