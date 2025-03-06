@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "⚒️ An SDK for building applications on top of Pegasys V3",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -26,13 +26,12 @@
   "dependencies": {
     "@ethersproject/abi": "^5.0.12",
     "@ethersproject/solidity": "^5.0.9",
-    "@pollum-io/sdk-core": "0.0.4",
+    "@pollum-io/sdk-core": "0.0.5",
     "@pollum-io/swap-router-contracts": "0.0.5",
     "@pollum-io/v3-periphery": "0.0.1",
     "@pollum-io/v3-staker": "0.0.1",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3",
-    "zksync-web3": "^0.17.1"
+    "tiny-warning": "^1.0.3"
   },
   "devDependencies": {
     "@pollum-io/v3-core": "0.0.1",
