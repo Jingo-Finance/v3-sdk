@@ -32,11 +32,12 @@ export function computePoolAddress({
   if (token0.chainId == 5701) {
     return zkUtils.create2Address(
       factoryAddress,
+      initCodeHashManualOverride ?? codehash,
       keccak256(
         ['bytes'],
         [defaultAbiCoder.encode(['address', 'address', 'uint24'], [token0.address, token1.address, fee])]
       ),
-      initCodeHashManualOverride ?? codehash
+      '0x'
     )
   } else {
     return getCreate2Address(
