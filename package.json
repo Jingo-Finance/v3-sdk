@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "⚒️ An SDK for building applications on top of Pegasys V3",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -31,11 +31,12 @@
     "@pollum-io/v3-periphery": "0.0.1",
     "@pollum-io/v3-staker": "0.0.1",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3"
+    "tiny-warning": "^1.0.3",
+    "zksync-web3": "^0.17.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.25",
     "@pollum-io/v3-core": "0.0.1",
+    "@types/jest": "^24.0.25",
     "tsdx": "^0.14.1"
   },
   "engines": {

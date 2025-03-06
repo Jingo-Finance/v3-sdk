@@ -3,6 +3,7 @@ import { getCreate2Address } from '@ethersproject/address'
 import { keccak256 } from '@ethersproject/solidity'
 import { Token } from '@pollum-io/sdk-core'
 import { FeeAmount, POOL_INIT_CODE_HASH_MAP, POOL_INIT_CODE_HASH } from '../constants'
+import { utils as zkUtils } from 'zksync-web3'
 
 /**
  * Computes a pool address
@@ -28,12 +29,23 @@ export function computePoolAddress({
 }): string {
   const [token0, token1] = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
   const codehash = POOL_INIT_CODE_HASH_MAP[tokenA.chainId] ?? POOL_INIT_CODE_HASH
-  return getCreate2Address(
-    factoryAddress,
-    keccak256(
-      ['bytes'],
-      [defaultAbiCoder.encode(['address', 'address', 'uint24'], [token0.address, token1.address, fee])]
-    ),
-    initCodeHashManualOverride ?? codehash
-  )
+  if (token0.chainId == 5701) {
+    return zkUtils.create2Address(
+      factoryAddress,
+      keccak256(
+        ['bytes'],
+        [defaultAbiCoder.encode(['address', 'address', 'uint24'], [token0.address, token1.address, fee])]
+      ),
+      initCodeHashManualOverride ?? codehash
+    )
+  } else {
+    return getCreate2Address(
+      factoryAddress,
+      keccak256(
+        ['bytes'],
+        [defaultAbiCoder.encode(['address', 'address', 'uint24'], [token0.address, token1.address, fee])]
+      ),
+      initCodeHashManualOverride ?? codehash
+    )
+  }
 }
