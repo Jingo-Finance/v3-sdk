@@ -6,9 +6,9 @@ import { NonfungiblePositionManager } from './nonfungiblePositionManager'
 import { encodeSqrtRatioX96 } from './utils/encodeSqrtRatioX96'
 
 describe('Staker', () => {
-  const reward = new Token(570, '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', 18, 'r', 'reward')
-  const token0 = new Token(570, '0x0000000000000000000000000000000000000001', 18, 't0', 'token0')
-  const token1 = new Token(570, '0x0000000000000000000000000000000000000002', 18, 't1', 'token1')
+  const reward = new Token(9745, '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984', 18, 'r', 'reward')
+  const token0 = new Token(9745, '0x0000000000000000000000000000000000000001', 18, 't0', 'token0')
+  const token1 = new Token(9745, '0x0000000000000000000000000000000000000002', 18, 't1', 'token1')
 
   const pool_0_1 = new Pool(token0, token1, FeeAmount.MEDIUM, encodeSqrtRatioX96(1, 1), 0, 0, [])
 

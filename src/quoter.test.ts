@@ -6,13 +6,13 @@ import { nearestUsableTick, encodeSqrtRatioX96, TickMath } from './utils'
 import { Route, Trade, Pool } from './entities'
 
 describe('SwapQuoter', () => {
-  const token0 = new Token(570, '0x0000000000000000000000000000000000000001', 18, 't0', 'token0')
-  const token1 = new Token(570, '0x0000000000000000000000000000000000000002', 18, 't1', 'token1')
+  const token0 = new Token(9745, '0x0000000000000000000000000000000000000001', 18, 't0', 'token0')
+  const token1 = new Token(9745, '0x0000000000000000000000000000000000000002', 18, 't1', 'token1')
 
   const feeAmount = FeeAmount.MEDIUM
   const sqrtRatioX96 = encodeSqrtRatioX96(1, 1)
   const liquidity = 1_000_000
-  const WETH = WETH9[570]
+  const WETH = WETH9[9745]
 
   const makePool = (token0: Token, token1: Token) => {
     return new Pool(token0, token1, feeAmount, sqrtRatioX96, liquidity, TickMath.getTickAtSqrtRatio(sqrtRatioX96), [

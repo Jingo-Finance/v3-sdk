@@ -6,13 +6,13 @@ import { NonfungiblePositionManager } from './nonfungiblePositionManager'
 import { encodeSqrtRatioX96 } from './utils/encodeSqrtRatioX96'
 
 describe('NonfungiblePositionManager', () => {
-  const token0 = new Token(570, '0x0000000000000000000000000000000000000001', 18, 't0', 'token0')
-  const token1 = new Token(570, '0x0000000000000000000000000000000000000002', 18, 't1', 'token1')
+  const token0 = new Token(9745, '0x0000000000000000000000000000000000000001', 18, 't0', 'token0')
+  const token1 = new Token(9745, '0x0000000000000000000000000000000000000002', 18, 't1', 'token1')
 
   const fee = FeeAmount.MEDIUM
 
   const pool_0_1 = new Pool(token0, token1, fee, encodeSqrtRatioX96(1, 1), 0, 0, [])
-  const pool_1_weth = new Pool(token1, WETH9[570], fee, encodeSqrtRatioX96(1, 1), 0, 0, [])
+  const pool_1_weth = new Pool(token1, WETH9[9745], fee, encodeSqrtRatioX96(1, 1), 0, 0, [])
 
   const recipient = '0x0000000000000000000000000000000000000003'
   const sender = '0x0000000000000000000000000000000000000004'
@@ -55,7 +55,7 @@ describe('NonfungiblePositionManager', () => {
             tickUpper: TICK_SPACINGS[FeeAmount.MEDIUM],
             liquidity: 1
           }),
-          { recipient, slippageTolerance, deadline, useNative: Ether.onChain(570) }
+          { recipient, slippageTolerance, deadline, useNative: Ether.onChain(9745) }
         )
       ).toThrow('NO_WETH')
     })
@@ -119,7 +119,7 @@ describe('NonfungiblePositionManager', () => {
           tickUpper: TICK_SPACINGS[FeeAmount.MEDIUM],
           liquidity: 1
         }),
-        { recipient, slippageTolerance, deadline, useNative: Ether.onChain(570) }
+        { recipient, slippageTolerance, deadline, useNative: Ether.onChain(9745) }
       )
 
       expect(calldata).toEqual(
@@ -148,7 +148,7 @@ describe('NonfungiblePositionManager', () => {
       const { calldata, value } = NonfungiblePositionManager.collectCallParameters({
         tokenId,
         expectedCurrencyOwed0: CurrencyAmount.fromRawAmount(token1, 0),
-        expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(Ether.onChain(570), 0),
+        expectedCurrencyOwed1: CurrencyAmount.fromRawAmount(Ether.onChain(9745), 0),
         recipient
       })
 
@@ -288,7 +288,7 @@ describe('NonfungiblePositionManager', () => {
     })
 
     it('works with eth', () => {
-      const ethAmount = CurrencyAmount.fromRawAmount(Ether.onChain(570), 0)
+      const ethAmount = CurrencyAmount.fromRawAmount(Ether.onChain(9745), 0)
       const tokenAmount = CurrencyAmount.fromRawAmount(token1, 0)
 
       const { calldata, value } = NonfungiblePositionManager.removeCallParameters(
@@ -318,7 +318,7 @@ describe('NonfungiblePositionManager', () => {
     })
 
     it('works for partial with eth', () => {
-      const ethAmount = CurrencyAmount.fromRawAmount(Ether.onChain(570), 0)
+      const ethAmount = CurrencyAmount.fromRawAmount(Ether.onChain(9745), 0)
       const tokenAmount = CurrencyAmount.fromRawAmount(token1, 0)
 
       const { calldata, value } = NonfungiblePositionManager.removeCallParameters(

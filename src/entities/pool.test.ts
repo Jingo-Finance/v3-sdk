@@ -10,8 +10,8 @@ import { NEGATIVE_ONE } from '../internalConstants'
 const ONE_ETHER = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(18))
 
 describe('Pool', () => {
-  const USDC = new Token(570, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 6, 'USDC', 'USD Coin')
-  const DAI = new Token(570, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
+  const USDC = new Token(9745, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 6, 'USDC', 'USD Coin')
+  const DAI = new Token(9745, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
 
   describe('constructor', () => {
     it('cannot be used for tokens on different chains', () => {
@@ -22,13 +22,13 @@ describe('Pool', () => {
 
     it('fee must be integer', () => {
       expect(() => {
-        new Pool(USDC, WETH9[570], FeeAmount.MEDIUM + 0.5, encodeSqrtRatioX96(1, 1), 0, 0, [])
+        new Pool(USDC, WETH9[9745], FeeAmount.MEDIUM + 0.5, encodeSqrtRatioX96(1, 1), 0, 0, [])
       }).toThrow('FEE')
     })
 
     it('fee cannot be more than 1e6', () => {
       expect(() => {
-        new Pool(USDC, WETH9[570], 1e6, encodeSqrtRatioX96(1, 1), 0, 0, [])
+        new Pool(USDC, WETH9[9745], 1e6, encodeSqrtRatioX96(1, 1), 0, 0, [])
       }).toThrow('FEE')
     })
 
@@ -40,27 +40,27 @@ describe('Pool', () => {
 
     it('price must be within tick price bounds', () => {
       expect(() => {
-        new Pool(USDC, WETH9[570], FeeAmount.MEDIUM, encodeSqrtRatioX96(1, 1), 0, 1, [])
+        new Pool(USDC, WETH9[9745], FeeAmount.MEDIUM, encodeSqrtRatioX96(1, 1), 0, 1, [])
       }).toThrow('PRICE_BOUNDS')
       expect(() => {
-        new Pool(USDC, WETH9[570], FeeAmount.MEDIUM, JSBI.add(encodeSqrtRatioX96(1, 1), JSBI.BigInt(1)), 0, -1, [])
+        new Pool(USDC, WETH9[9745], FeeAmount.MEDIUM, JSBI.add(encodeSqrtRatioX96(1, 1), JSBI.BigInt(1)), 0, -1, [])
       }).toThrow('PRICE_BOUNDS')
     })
 
     it('works with valid arguments for empty pool medium fee', () => {
-      new Pool(USDC, WETH9[570], FeeAmount.MEDIUM, encodeSqrtRatioX96(1, 1), 0, 0, [])
+      new Pool(USDC, WETH9[9745], FeeAmount.MEDIUM, encodeSqrtRatioX96(1, 1), 0, 0, [])
     })
 
     it('works with valid arguments for empty pool low fee', () => {
-      new Pool(USDC, WETH9[570], FeeAmount.LOW, encodeSqrtRatioX96(1, 1), 0, 0, [])
+      new Pool(USDC, WETH9[9745], FeeAmount.LOW, encodeSqrtRatioX96(1, 1), 0, 0, [])
     })
 
     it('works with valid arguments for empty pool lowest fee', () => {
-      new Pool(USDC, WETH9[570], FeeAmount.LOWEST, encodeSqrtRatioX96(1, 1), 0, 0, [])
+      new Pool(USDC, WETH9[9745], FeeAmount.LOWEST, encodeSqrtRatioX96(1, 1), 0, 0, [])
     })
 
     it('works with valid arguments for empty pool high fee', () => {
-      new Pool(USDC, WETH9[570], FeeAmount.HIGH, encodeSqrtRatioX96(1, 1), 0, 0, [])
+      new Pool(USDC, WETH9[9745], FeeAmount.HIGH, encodeSqrtRatioX96(1, 1), 0, 0, [])
     })
   })
 
@@ -150,16 +150,16 @@ describe('Pool', () => {
     })
 
     it('throws if invalid token', () => {
-      expect(() => pool.priceOf(WETH9[570])).toThrow('TOKEN')
+      expect(() => pool.priceOf(WETH9[9745])).toThrow('TOKEN')
     })
   })
 
   describe('#chainId', () => {
     it('returns the token0 chainId', () => {
       let pool = new Pool(USDC, DAI, FeeAmount.LOW, encodeSqrtRatioX96(1, 1), 0, 0, [])
-      expect(pool.chainId).toEqual(570)
+      expect(pool.chainId).toEqual(9745)
       pool = new Pool(DAI, USDC, FeeAmount.LOW, encodeSqrtRatioX96(1, 1), 0, 0, [])
-      expect(pool.chainId).toEqual(570)
+      expect(pool.chainId).toEqual(9745)
     })
   })
 
@@ -167,7 +167,7 @@ describe('Pool', () => {
     const pool = new Pool(USDC, DAI, FeeAmount.LOW, encodeSqrtRatioX96(1, 1), 0, 0, [])
     expect(pool.involvesToken(USDC)).toEqual(true)
     expect(pool.involvesToken(DAI)).toEqual(true)
-    expect(pool.involvesToken(WETH9[570])).toEqual(false)
+    expect(pool.involvesToken(WETH9[9745])).toEqual(false)
   })
 
   describe('swaps', () => {
