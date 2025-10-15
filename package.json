@@ -1,5 +1,5 @@
 {
-  "name": "@pollum-io/v3-sdk",
+  "name": "@jingofi/v3-sdk",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -26,15 +26,15 @@
   "dependencies": {
     "@ethersproject/abi": "^5.0.12",
     "@ethersproject/solidity": "^5.0.9",
-    "@pollum-io/sdk-core": "0.0.5",
-    "@pollum-io/swap-router-contracts": "0.0.5",
-    "@pollum-io/v3-periphery": "0.0.1",
-    "@pollum-io/v3-staker": "0.0.1",
+    "@jingofi/sdk-core": "0.0.5",
+    "@jingofi/swap-router-contracts": "0.0.5",
+    "@jingofi/v3-periphery": "0.0.1",
+    "@jingofi/v3-staker": "0.0.1",
     "tiny-invariant": "^1.1.0",
     "tiny-warning": "^1.0.3"
   },
   "devDependencies": {
-    "@pollum-io/v3-core": "0.0.1",
+    "@jingofi/v3-core": "0.0.1",
     "@types/jest": "^24.0.25",
     "tsdx": "^0.14.1"
   },

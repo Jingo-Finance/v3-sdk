@@ -1,4 +1,4 @@
-import { MaxUint256 } from '@pollum-io/sdk-core'
+import { MaxUint256 } from '@jingofi/sdk-core'
 import JSBI from 'jsbi'
 import { encodeSqrtRatioX96 } from './encodeSqrtRatioX96'
 import { maxLiquidityForAmounts } from './maxLiquidityForAmounts'

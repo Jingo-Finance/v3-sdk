@@ -1,6 +1,6 @@
 import { POOL_INIT_CODE_HASH } from './constants'
 
-import IPegasysV3Pool from '@pollum-io/v3-core/artifacts/contracts/PegasysV3Pool.sol/PegasysV3Pool.json'
+import IPegasysV3Pool from '@jingofi/v3-core/artifacts/contracts/PegasysV3Pool.sol/PegasysV3Pool.json'
 import { keccak256 } from '@ethersproject/solidity'
 
 // this _could_ go in constants, except that it would cost every consumer of the sdk the CPU to compute the hash

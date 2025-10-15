@@ -1,4 +1,4 @@
-import { BigintIsh } from '@pollum-io/sdk-core'
+import { BigintIsh } from '@jingofi/sdk-core'
 import { TickList } from '../utils/tickList'
 import { Tick, TickConstructorArgs } from './tick'
 import { TickDataProvider } from './tickDataProvider'

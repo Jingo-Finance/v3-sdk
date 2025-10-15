@@ -1,7 +1,7 @@
 import { defaultAbiCoder } from '@ethersproject/abi'
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256 } from '@ethersproject/solidity'
-import { Token, SupportedChainId, computeZksyncCreate2Address } from '@pollum-io/sdk-core'
+import { Token, SupportedChainId, computeZksyncCreate2Address } from '@jingofi/sdk-core'
 import { FeeAmount, POOL_INIT_CODE_HASH_MAP, POOL_INIT_CODE_HASH } from '../constants'
 
 /**

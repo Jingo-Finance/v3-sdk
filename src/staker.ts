@@ -1,7 +1,7 @@
-import { BigintIsh, Token, validateAndParseAddress } from '@pollum-io/sdk-core'
+import { BigintIsh, Token, validateAndParseAddress } from '@jingofi/sdk-core'
 import { MethodParameters, toHex } from './utils/calldata'
 import { defaultAbiCoder, Interface } from '@ethersproject/abi'
-import IPegasysV3Staker from '@pollum-io/v3-staker/artifacts/contracts/PegasysV3Staker.sol/PegasysV3Staker.json'
+import IPegasysV3Staker from '@jingofi/v3-staker/artifacts/contracts/PegasysV3Staker.sol/PegasysV3Staker.json'
 import { Pool } from './entities'
 import { Multicall } from './multicall'
 
