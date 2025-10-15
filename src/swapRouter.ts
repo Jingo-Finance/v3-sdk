@@ -46,7 +46,7 @@ export interface SwapOptions {
 }
 
 /**
- * Represents the Pegasys V3 SwapRouter, and has static methods for helping execute trades.
+ * Represents the Jingo Finance V3 SwapRouter, and has static methods for helping execute trades.
  */
 export abstract class SwapRouter {
   public static INTERFACE: Interface = new Interface(ISwapRouter.abi)

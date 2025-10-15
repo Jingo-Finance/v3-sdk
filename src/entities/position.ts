@@ -17,7 +17,7 @@ interface PositionConstructorArgs {
 }
 
 /**
- * Represents a position on a Pegasys V3 Pool
+ * Represents a position on a Jingo Finance V3 Pool
  */
 export class Position {
   public readonly pool: Pool

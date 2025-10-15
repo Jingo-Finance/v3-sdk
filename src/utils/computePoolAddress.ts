@@ -6,7 +6,7 @@ import { FeeAmount, POOL_INIT_CODE_HASH_MAP, POOL_INIT_CODE_HASH } from '../cons
 
 /**
  * Computes a pool address
- * @param factoryAddress The Pegasys V3 factory address
+ * @param factoryAddress The Jingo Finance V3 factory address
  * @param tokenA The first token of the pair, irrespective of sort order
  * @param tokenB The second token of the pair, irrespective of sort order
  * @param fee The fee tier of the pool

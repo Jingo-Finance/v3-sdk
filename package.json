@@ -5,7 +5,7 @@
     "access": "public"
   },
   "version": "0.0.8",
-  "description": "⚒️ An SDK for building applications on top of Pegasys V3",
+  "description": "⚒️ An SDK for building applications on top of Jingo Finance V3",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
