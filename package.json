@@ -11,9 +11,9 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/pegasys-fi/v3-sdk.git",
+  "repository": "https://github.com/jingo-fi/v3-sdk.git",
   "keywords": [
-    "pegasys",
+    "jingo",
     "syscoin"
   ],
   "module": "dist/v3-sdk.esm.js",

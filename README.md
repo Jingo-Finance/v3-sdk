@@ -7,8 +7,8 @@ Pull requests welcome!
 
 # Jingo Finance V3 SDK
 
-[![Unit Tests](https://github.com/pegasys-fi/v3-sdk/workflows/Unit%20Tests/badge.svg)](https://github.com/pegasys-fi/v3-sdk/actions?query=workflow%3A%22Unit+Tests%22)
-[![Lint](https://github.com/pegasys-fi/v3-sdk/workflows/Lint/badge.svg)](https://github.com/pegasys-fi/v3-sdk/actions?query=workflow%3ALint)
+[![Unit Tests](https://github.com/jingo-fi/v3-sdk/workflows/Unit%20Tests/badge.svg)](https://github.com/jingo-fi/v3-sdk/actions?query=workflow%3A%22Unit+Tests%22)
+[![Lint](https://github.com/jingo-fi/v3-sdk/workflows/Lint/badge.svg)](https://github.com/jingo-fi/v3-sdk/actions?query=workflow%3ALint)
 [![npm version](https://img.shields.io/npm/v/@jingofi/v3-sdk/latest.svg)](https://www.npmjs.com/package/@jingofi/v3-sdk/v/latest)
 [![npm bundle size (scoped version)](https://img.shields.io/bundlephobia/minzip/@jingofi/v3-sdk/latest.svg)](https://bundlephobia.com/result?p=@jingofi/v3-sdk@latest)
 
