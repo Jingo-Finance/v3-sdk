@@ -8,16 +8,16 @@ import { Pool } from './pool'
 import { Position } from './position'
 
 describe('Position', () => {
-  const USDC = new Token(9745, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 6, 'USDC', 'USD Coin')
-  const DAI = new Token(9745, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
+  const USDT0 = new Token(9745, '0xB8CE59FC3717ada4C02eaDF9682A9e934F625ebb', 6, 'USDT0', 'USD Coin')
+  const USDe = new Token(9745, '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34', 18, 'USDe', 'USDe Stablecoin')
   const POOL_SQRT_RATIO_START = encodeSqrtRatioX96(100e6, 100e18)
   const POOL_TICK_CURRENT = TickMath.getTickAtSqrtRatio(POOL_SQRT_RATIO_START)
   const TICK_SPACING = TICK_SPACINGS[FeeAmount.LOW]
-  const DAI_USDC_POOL = new Pool(DAI, USDC, FeeAmount.LOW, POOL_SQRT_RATIO_START, 0, POOL_TICK_CURRENT, [])
+  const DAI_USDT0_POOL = new Pool(USDe, USDT0, FeeAmount.LOW, POOL_SQRT_RATIO_START, 0, POOL_TICK_CURRENT, [])
 
   it('can be constructed around 0 tick', () => {
     const position = new Position({
-      pool: DAI_USDC_POOL,
+      pool: DAI_USDT0_POOL,
       liquidity: 1,
       tickLower: -10,
       tickUpper: 10
@@ -27,7 +27,7 @@ describe('Position', () => {
 
   it('can use min and max ticks', () => {
     const position = new Position({
-      pool: DAI_USDC_POOL,
+      pool: DAI_USDT0_POOL,
       liquidity: 1,
       tickLower: nearestUsableTick(TickMath.MIN_TICK, TICK_SPACING),
       tickUpper: nearestUsableTick(TickMath.MAX_TICK, TICK_SPACING)
@@ -39,7 +39,7 @@ describe('Position', () => {
     expect(
       () =>
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 1,
           tickLower: 10,
           tickUpper: -10
@@ -51,7 +51,7 @@ describe('Position', () => {
     expect(
       () =>
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 1,
           tickLower: -10,
           tickUpper: -10
@@ -63,7 +63,7 @@ describe('Position', () => {
     expect(
       () =>
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 1,
           tickLower: -5,
           tickUpper: 10
@@ -75,7 +75,7 @@ describe('Position', () => {
     expect(
       () =>
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 1,
           tickLower: nearestUsableTick(TickMath.MIN_TICK, TICK_SPACING) - TICK_SPACING,
           tickUpper: 10
@@ -87,7 +87,7 @@ describe('Position', () => {
     expect(
       () =>
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 1,
           tickLower: -10,
           tickUpper: 15
@@ -99,7 +99,7 @@ describe('Position', () => {
     expect(
       () =>
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 1,
           tickLower: -10,
           tickUpper: nearestUsableTick(TickMath.MAX_TICK, TICK_SPACING) + TICK_SPACING
@@ -111,7 +111,7 @@ describe('Position', () => {
     it('is correct for price above', () => {
       expect(
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e12,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -121,7 +121,7 @@ describe('Position', () => {
     it('is correct for price below', () => {
       expect(
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING
@@ -131,7 +131,7 @@ describe('Position', () => {
     it('is correct for in-range position', () => {
       expect(
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -144,7 +144,7 @@ describe('Position', () => {
     it('is correct for price above', () => {
       expect(
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -154,7 +154,7 @@ describe('Position', () => {
     it('is correct for price below', () => {
       expect(
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING
@@ -164,7 +164,7 @@ describe('Position', () => {
     it('is correct for in-range position', () => {
       expect(
         new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -179,7 +179,7 @@ describe('Position', () => {
 
       it('is correct for positions below', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -192,7 +192,7 @@ describe('Position', () => {
 
       it('is correct for positions above', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING
@@ -205,7 +205,7 @@ describe('Position', () => {
 
       it('is correct for positions within', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -222,7 +222,7 @@ describe('Position', () => {
 
       it('is correct for positions below', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -235,7 +235,7 @@ describe('Position', () => {
 
       it('is correct for positions above', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING
@@ -248,7 +248,7 @@ describe('Position', () => {
 
       it('is correct for positions within', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -265,7 +265,7 @@ describe('Position', () => {
 
       it('is correct for pool at min price', () => {
         const position = new Position({
-          pool: new Pool(DAI, USDC, FeeAmount.LOW, TickMath.MIN_SQRT_RATIO, 0, TickMath.MIN_TICK, []),
+          pool: new Pool(USDe, USDT0, FeeAmount.LOW, TickMath.MIN_SQRT_RATIO, 0, TickMath.MIN_TICK, []),
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -279,8 +279,8 @@ describe('Position', () => {
       it('is correct for pool at max price', () => {
         const position = new Position({
           pool: new Pool(
-            DAI,
-            USDC,
+            USDe,
+            USDT0,
             FeeAmount.LOW,
             JSBI.subtract(TickMath.MAX_SQRT_RATIO, JSBI.BigInt(1)),
             0,
@@ -305,7 +305,7 @@ describe('Position', () => {
 
       it('is correct for positions below', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -318,7 +318,7 @@ describe('Position', () => {
 
       it('is correct for positions above', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING
@@ -331,7 +331,7 @@ describe('Position', () => {
 
       it('is correct for positions within', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -348,7 +348,7 @@ describe('Position', () => {
 
       it('is correct for positions below', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -360,7 +360,7 @@ describe('Position', () => {
 
       it('is correct for positions above', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING
@@ -372,7 +372,7 @@ describe('Position', () => {
 
       it('is correct for positions within', () => {
         const position = new Position({
-          pool: DAI_USDC_POOL,
+          pool: DAI_USDT0_POOL,
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -388,7 +388,7 @@ describe('Position', () => {
 
       it('is correct for pool at min price', () => {
         const position = new Position({
-          pool: new Pool(DAI, USDC, FeeAmount.LOW, TickMath.MIN_SQRT_RATIO, 0, TickMath.MIN_TICK, []),
+          pool: new Pool(USDe, USDT0, FeeAmount.LOW, TickMath.MIN_SQRT_RATIO, 0, TickMath.MIN_TICK, []),
           liquidity: 100e18,
           tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
           tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -402,8 +402,8 @@ describe('Position', () => {
       it('is correct for pool at max price', () => {
         const position = new Position({
           pool: new Pool(
-            DAI,
-            USDC,
+            USDe,
+            USDT0,
             FeeAmount.LOW,
             JSBI.subtract(TickMath.MAX_SQRT_RATIO, JSBI.BigInt(1)),
             0,
@@ -425,7 +425,7 @@ describe('Position', () => {
   describe('#mintAmounts', () => {
     it('is correct for price above', () => {
       const { amount0, amount1 } = new Position({
-        pool: DAI_USDC_POOL,
+        pool: DAI_USDT0_POOL,
         liquidity: 100e18,
         tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING,
         tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
@@ -435,7 +435,7 @@ describe('Position', () => {
     })
     it('is correct for price below', () => {
       const { amount0, amount1 } = new Position({
-        pool: DAI_USDC_POOL,
+        pool: DAI_USDT0_POOL,
         liquidity: 100e18,
         tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
         tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING
@@ -445,7 +445,7 @@ describe('Position', () => {
     })
     it('is correct for in-range position', () => {
       const { amount0, amount1 } = new Position({
-        pool: DAI_USDC_POOL,
+        pool: DAI_USDT0_POOL,
         liquidity: 100e18,
         tickLower: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) - TICK_SPACING * 2,
         tickUpper: nearestUsableTick(POOL_TICK_CURRENT, TICK_SPACING) + TICK_SPACING * 2
