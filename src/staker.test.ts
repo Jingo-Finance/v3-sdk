@@ -1,4 +1,4 @@
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from '@jingofi/sdk-core'
 import { FeeAmount } from './constants'
 import { Pool } from './entities/pool'
 import { Staker } from './staker'

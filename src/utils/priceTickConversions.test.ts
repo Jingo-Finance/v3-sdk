@@ -1,4 +1,4 @@
-import { Price, Token } from '@pollum-io/sdk-core'
+import { Price, Token } from '@jingofi/sdk-core'
 import { tickToPrice } from './index'
 import { priceToClosestTick } from './priceTickConversions'
 

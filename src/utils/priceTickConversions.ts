@@ -1,4 +1,4 @@
-import { Price, Token } from '@pollum-io/sdk-core'
+import { Price, Token } from '@jingofi/sdk-core'
 import JSBI from 'jsbi'
 import { Q192 } from '../internalConstants'
 import { encodeSqrtRatioX96 } from './encodeSqrtRatioX96'

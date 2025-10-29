@@ -1,5 +1,5 @@
 import JSBI from 'jsbi'
-import { CurrencyAmount, Token, TradeType, WETH9 } from '@pollum-io/sdk-core'
+import { CurrencyAmount, Token, TradeType, WETH9 } from '@jingofi/sdk-core'
 import { FeeAmount, TICK_SPACINGS } from './constants'
 import { SwapQuoter } from './quoter'
 import { nearestUsableTick, encodeSqrtRatioX96, TickMath } from './utils'

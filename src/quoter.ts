@@ -1,8 +1,8 @@
 import { Interface } from '@ethersproject/abi'
-import { BigintIsh, Currency, CurrencyAmount, TradeType } from '@pollum-io/sdk-core'
+import { BigintIsh, Currency, CurrencyAmount, TradeType } from '@jingofi/sdk-core'
 import { encodeRouteToPath, MethodParameters, toHex } from './utils'
-import IQuoter from '@pollum-io/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'
-import IQuoterV2 from '@pollum-io/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'
+import IQuoter from '@jingofi/v3-periphery/artifacts/contracts/lens/Quoter.sol/Quoter.json'
+import IQuoterV2 from '@jingofi/swap-router-contracts/artifacts/contracts/lens/QuoterV2.sol/QuoterV2.json'
 import { Route } from './entities'
 import invariant from 'tiny-invariant'
 import { FeeAmount } from './constants'
@@ -30,7 +30,7 @@ interface BaseQuoteParams {
 }
 
 /**
- * Represents the Pegasys V2 QuoterV1 contract with a method for returning the formatted
+ * Represents the Jingo V2 QuoterV1 contract with a method for returning the formatted
  * calldata needed to call the quoter contract.
  */
 export abstract class SwapQuoter {

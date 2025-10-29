@@ -1,4 +1,4 @@
-import { Ether, Token, WETH9 } from '@pollum-io/sdk-core'
+import { Ether, Token, WETH9 } from '@jingofi/sdk-core'
 import { FeeAmount } from '../constants'
 import { Pool } from '../entities/pool'
 import { Route } from '../entities/route'

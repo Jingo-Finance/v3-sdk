@@ -1,11 +1,11 @@
 import { POOL_INIT_CODE_HASH } from './constants'
 
-import IPegasysV3Pool from '@pollum-io/v3-core/artifacts/contracts/PegasysV3Pool.sol/PegasysV3Pool.json'
+import IJingoV3Pool from '@jingofi/v3-core/artifacts/contracts/JingoV3Pool.sol/JingoV3Pool.json'
 import { keccak256 } from '@ethersproject/solidity'
 
 // this _could_ go in constants, except that it would cost every consumer of the sdk the CPU to compute the hash
 // and load the JSON.
-const COMPUTED_INIT_CODE_HASH = keccak256(['bytes'], [IPegasysV3Pool.bytecode])
+const COMPUTED_INIT_CODE_HASH = keccak256(['bytes'], [IJingoV3Pool.bytecode])
 
 describe('constants', () => {
   describe('INIT_CODE_HASH', () => {

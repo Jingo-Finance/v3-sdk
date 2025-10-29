@@ -1,12 +1,12 @@
 import { defaultAbiCoder } from '@ethersproject/abi'
 import { getCreate2Address } from '@ethersproject/address'
 import { keccak256 } from '@ethersproject/solidity'
-import { Token } from '@pollum-io/sdk-core'
+import { Token } from '@jingofi/sdk-core'
 import { FeeAmount, POOL_INIT_CODE_HASH } from '../constants'
 
 /**
  * Computes a pool address
- * @param factoryAddress The Pegasys V3 factory address
+ * @param factoryAddress The Jingo V3 factory address
  * @param tokenA The first token of the pair, irrespective of sort order
  * @param tokenB The second token of the pair, irrespective of sort order
  * @param fee The fee tier of the pool

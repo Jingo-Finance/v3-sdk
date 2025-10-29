@@ -1,4 +1,4 @@
-import { BigintIsh } from '@pollum-io/sdk-core'
+import { BigintIsh } from '@jingofi/sdk-core'
 
 /**
  * Provides information about ticks

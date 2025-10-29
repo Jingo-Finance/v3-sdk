@@ -1,4 +1,4 @@
-import { Percent, Token } from '@pollum-io/sdk-core'
+import { Percent, Token } from '@jingofi/sdk-core'
 import JSBI from 'jsbi'
 import { Payments } from './payments'
 
